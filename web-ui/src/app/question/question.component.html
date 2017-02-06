@@ -67,6 +67,70 @@
 
                 <div class="form-group">
                     <div class="col-md-4 col-md-offset-2">
+                            <span>
+                                <button class="btn btn-primary"
+                                        type="button"
+                                        (click)="addAnswer()">
+                                    Add Another Answer
+                                </button>
+                            </span>
+                    </div>
+                </div>
+
+                <div formArrayName="answers" *ngFor="let answer of answers.controls; let i=index">
+                    <div [formGroupName]="i">
+                        <div class="form-group">
+                            <label class="col-md-2 control-label"
+                                   attr.for="{{'titleId' + i}}">Answer</label>
+                            <div class="col-md-8">
+                                <input type="text"
+                                       class="form-control"
+                                       id="{{'titleId' + i}}"
+                                       placeholder="Answer"
+                                       formControlName="title">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-2 control-label"
+                                   attr.for="{{'costId' + i}}">Answer cost</label>
+                            <div class="col-md-8">
+                                <input type="number"
+                                       class="form-control"
+                                       id="{{'costId' + i}}"
+                                       placeholder="Answer cost"
+                                       formControlName="cost">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-2 control-label"
+                                   attr.for="{{'rightId' + i}}">Is answer Right?</label>
+                            <div class="col-md-3">
+                                <input type="text"
+                                       class="form-control"
+                                       id="{{'rightId' + i}}"
+                                       placeholder="Right"
+                                       formControlName="right">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label"
+                                   attr.for="{{'promptId' + i}}">Prompt</label>
+                            <div class="col-md-8">
+                                <input type="text"
+                                       class="form-control"
+                                       id="{{'promptId' + i}}"
+                                       placeholder="Prompt"
+                                       formControlName="prompt">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <div class="col-md-4 col-md-offset-2">
                         <span>
                             <button class="btn btn-primary"
                                     type="submit"
