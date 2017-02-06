@@ -1,17 +1,82 @@
-<div class="row">
-    <div class="container">
-        <div class="panel panel-info">
-            <div class="panel-heading text-left">
-                <h3 class="panel-title">{{question.title}}</h3>
-            </div>
-            <div class="panel-body">
-                <div class="col-md-4">
-                    Type: <span>{{question.type}}</span>
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        New Question
+    </div>
+    <div class="panel-body">
+        <form class="form-horizontal"
+              novalidate
+              (ngSubmit)="save()"
+              [formGroup]="questionForm">
+
+            <fieldset>
+                <div class="form-group">
+                    <label class="col-md-2 control-label"
+                           for="titleId">Question</label>
+                    <div class="col-md-8">
+                        <input class="form-control"
+                               id="titleId"
+                               type="text"
+                               placeholder="Question (required)"
+                               formControlName="title"/>
+                    </div>
                 </div>
-                <div class="col-md-2">
-                    Cost: <span>{{question.cost}}</span>
+                <div class="form-group">
+                    <label class="col-md-2 control-label"
+                           for="typeId">Type</label>
+                    <div class="col-md-8">
+                        <input class="form-control"
+                               id="typeId"
+                               type="text"
+                               placeholder="Type (required)"
+                               formControlName="type"/>
+                    </div>
                 </div>
-            </div>
-        </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label"
+                           for="costId">Cost</label>
+                    <div class="col-md-8">
+                        <input class="form-control"
+                               id="costId"
+                               type="text"
+                               placeholder="Cost"
+                               formControlName="cost"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label"
+                           for="accuracyId">Accuracy</label>
+                    <div class="col-md-8">
+                        <input class="form-control"
+                               id="accuracyId"
+                               type="text"
+                               placeholder="Accuracy"
+                               formControlName="accuracy"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label"
+                           for="promptId">Prompt</label>
+                    <div class="col-md-8">
+                        <input class="form-control"
+                               id="promptId"
+                               type="text"
+                               placeholder="Prompt"
+                               formControlName="prompt"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-4 col-md-offset-2">
+                        <span>
+                            <button class="btn btn-primary"
+                                    type="submit"
+                                    [disabled]="!questionForm.valid">
+                                Save
+                            </button>
+                        </span>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
     </div>
 </div>

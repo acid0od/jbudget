@@ -1,4 +1,5 @@
-import {Component, Input} from "@angular/core";
+import {Component, OnInit} from "@angular/core";
+import {FormGroup, FormBuilder} from "@angular/forms";
 import {Question} from "./question.model";
 
 @Component({
@@ -6,6 +7,24 @@ import {Question} from "./question.model";
     templateUrl: './question.component.html',
 })
 
-export class QuestionComponent {
-    @Input() question: Question;
+export class QuestionComponent implements OnInit {
+    questionForm: FormGroup;
+    question: Question;
+
+    constructor(private fb: FormBuilder) {
+    }
+
+    ngOnInit(): void {
+        this.questionForm = this.fb.group({
+            title: [''],
+            type: [''],
+            cost: [0],
+            accuracy: [10],
+            prompt: ['']
+        });
+    }
+
+    save(): void {
+        console.log('Saved: ' + JSON.stringify(this.questionForm.value));
+    }
 }
