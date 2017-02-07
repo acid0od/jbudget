@@ -9,7 +9,10 @@
               [formGroup]="questionForm">
 
             <fieldset>
-                <div class="form-group">
+                <div class="form-group"
+                     [ngClass]="{'has-error': (questionForm.get('title').touched ||
+                                              questionForm.get('title').dirty) &&
+                                              !questionForm.get('title').valid }">
                     <label class="col-md-2 control-label"
                            for="titleId">Question</label>
                     <div class="col-md-8">
@@ -18,6 +21,16 @@
                                type="text"
                                placeholder="Question (required)"
                                formControlName="title"/>
+                        <span class="help-block" *ngIf="(questionForm.get('title').touched ||
+                                                         questionForm.get('title').dirty) &&
+                                                         questionForm.get('title').errors">
+                            <span *ngIf="questionForm.get('title').errors.required">
+                                Please enter your Question.
+                            </span>
+                            <span *ngIf="questionForm.get('title').errors.minlength">
+                                The question must be longer than 3 characters.
+                            </span>
+                        </span>
                     </div>
                 </div>
                 <div class="form-group">
@@ -31,6 +44,7 @@
                                formControlName="type"/>
                     </div>
                 </div>
+
                 <div class="form-group">
                     <label class="col-md-2 control-label"
                            for="costId">Cost</label>
@@ -94,25 +108,22 @@
                         <div class="form-group">
                             <label class="col-md-2 control-label"
                                    attr.for="{{'costId' + i}}">Answer cost</label>
-                            <div class="col-md-8">
+                            <div class="col-md-3">
                                 <input type="number"
                                        class="form-control"
                                        id="{{'costId' + i}}"
                                        placeholder="Answer cost"
                                        formControlName="cost">
                             </div>
-                        </div>
 
-                        <div class="form-group">
-                            <label class="col-md-2 control-label"
-                                   attr.for="{{'rightId' + i}}">Is answer Right?</label>
-                            <div class="col-md-3">
-                                <input type="text"
-                                       class="form-control"
-                                       id="{{'rightId' + i}}"
-                                       placeholder="Right"
-                                       formControlName="right">
+                            <div class="col-md-2">
+                                Is answer Right?
+                                <div class="material-switch pull-right">
+                                    <input id="{{'rightId' + i}}" type="checkbox" formControlName="right"/>
+                                    <label for="{{'rightId' + i}}" class="label-default"></label>
+                                </div>
                             </div>
+
                         </div>
                         <div class="form-group">
                             <label class="col-md-2 control-label"
