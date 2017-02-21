@@ -4,10 +4,10 @@ import {Question} from "./question.model";
 
 @Component({
     selector: 'questions',
-    templateUrl: './question.component.html',
+    templateUrl: './question-edit.component.html',
 })
 
-export class QuestionComponent implements OnInit {
+export class QuestionEditComponent implements OnInit {
     questionForm: FormGroup;
     question: Question;
 
