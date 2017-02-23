@@ -9,7 +9,7 @@ import "../../public/css/styles.css";
 })
 
 export class AppComponent {
-    questions: Question[];
+   /* questions: Question[];
 
     constructor() {
         this.questions = [
@@ -25,5 +25,5 @@ export class AppComponent {
         title.value = '';
         link.value = '';
         return false;
-    }
+    }*/
 }

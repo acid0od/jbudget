@@ -3,6 +3,13 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {RouterModule} from "@angular/router";
 import {InMemoryWebApiModule} from "angular-in-memory-web-api";
 import {QuestionEditComponent} from "./question-edit.component";
+import {SharedModule} from "../shared/shared.module";
+import {QuestionService} from "./question.service";
+import {QuestionData} from "./question-data";
+import {QuestionListComponent} from "./question-list.component";
+import {QuestionDetailComponent} from "./question-detail.component";
+import {QuestionFilterPipe} from "./question-filter.pipe";
+import {QuestionEditGuard, QuestionDetailGuard} from "./question-guard.service";
 
 @NgModule({
     imports: [

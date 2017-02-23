@@ -5,10 +5,12 @@ import {ReactiveFormsModule} from  "@angular/forms"
 import {RouterModule} from '@angular/router';
 import {QuestionModule} from "./question/question.module";
 import {WelcomeComponent} from "./home/welcome.component";
+import {HttpModule} from "@angular/http";
 
 @NgModule({
     imports: [
         BrowserModule,
+        HttpModule,
         ReactiveFormsModule,
         RouterModule.forRoot([
             { path: 'welcome', component: WelcomeComponent },
