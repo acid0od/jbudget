@@ -19,7 +19,7 @@ export class QuestionData implements InMemoryDbService {
                         'title': 'a_title1',
                         'cost': 10,
                         'checked': false,
-                        'right': true,
+                        'right': false,
                         'prompt': 'a_prompt'
                     },
                     {
@@ -27,6 +27,20 @@ export class QuestionData implements InMemoryDbService {
                         'cost': 10,
                         'checked': false,
                         'right': true,
+                        'prompt': 'a_prompt'
+                    },
+                    {
+                        'title': 'a_title3',
+                        'cost': 10,
+                        'checked': false,
+                        'right': false,
+                        'prompt': 'a_prompt'
+                    },
+                    {
+                        'title': 'a_title4',
+                        'cost': 10,
+                        'checked': false,
+                        'right': false,
                         'prompt': 'a_prompt'
                     }
                 ]

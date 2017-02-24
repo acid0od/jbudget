@@ -120,7 +120,15 @@ export class QuestionEditComponent implements OnInit {
             prompt: this.question.prompt
         });
 
-        this.questionForm.setControl('answers', this.fb.array(this.question.answers || []));
+        if (this.question.answers) {
+            const answersFGs = this.question.answers.map(answers => this.fb.group(answers));
+            const answersFormArray = this.fb.array(answersFGs);
+            this.questionForm.setControl('answers', answersFormArray);
+        } else {
+            this.questionForm.setControl('answers', this.fb.array([this.buildAnswer()]));
+        }
+
+        //this.questionForm.setControl('answers', this.fb.array(this.question.answers || []));
     }
 
     save(): void {
