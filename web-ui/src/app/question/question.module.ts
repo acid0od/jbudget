@@ -1,47 +1,26 @@
-import {NgModule} from "@angular/core";
-import {ReactiveFormsModule} from "@angular/forms";
-import {RouterModule} from "@angular/router";
-import {InMemoryWebApiModule} from "angular-in-memory-web-api";
-import {QuestionEditComponent} from "./question-edit.component";
-import {SharedModule} from "../shared/shared.module";
-import {QuestionService} from "./question.service";
-import {QuestionData} from "./question-data";
-import {QuestionListComponent} from "./question-list.component";
-import {QuestionDetailComponent} from "./question-detail.component";
-import {QuestionFilterPipe} from "./question-filter.pipe";
-import {QuestionEditGuard, QuestionDetailGuard} from "./question-guard.service";
+import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
+import { QuestionListComponent } from './question-list.component';
+import { QuestionService } from './question.service';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
     imports: [
-        SharedModule,
-        ReactiveFormsModule,
-        InMemoryWebApiModule.forRoot(QuestionData),
+        CommonModule,
         RouterModule.forChild([
-            {path: 'questions', component: QuestionListComponent},
-            {
-                path: 'question/:id',
-                canActivate: [QuestionDetailGuard],
-                component: QuestionDetailComponent
-            },
-            {
-                path: 'questionEdit/:id',
-                canDeactivate: [QuestionEditGuard],
-                component: QuestionEditComponent
-            },
+            {path: '', component: QuestionListComponent}
         ])
     ],
     declarations: [
-        QuestionListComponent,
-        QuestionDetailComponent,
-        QuestionEditComponent,
-        QuestionFilterPipe
+        QuestionListComponent
     ],
+
     providers: [
-        QuestionService,
-        QuestionDetailGuard,
-        QuestionEditGuard
+        QuestionService
     ]
+
 })
 
 export class QuestionModule {
+
 }
