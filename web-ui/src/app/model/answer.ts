@@ -1,7 +1,7 @@
 export class Answer {
-    title: string;
-    cost: number;
-    right: number;
-    prompt: string;
-    checked: boolean;
+    public title: string;
+    public cost: number;
+    public right: number;
+    public prompt: string;
+    public checked: boolean;
 }

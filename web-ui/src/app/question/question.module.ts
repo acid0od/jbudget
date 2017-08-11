@@ -1,18 +1,24 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { QuestionListComponent } from './question-list.component';
+import { QuestionEditComponent } from './question-edit.component';
 import { QuestionService } from './question.service';
 import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
     imports: [
         CommonModule,
+        ReactiveFormsModule,
         RouterModule.forChild([
-            {path: '', component: QuestionListComponent}
+            { path: 'questions', component: QuestionListComponent },
+            { path: 'questionEdit/new', component: QuestionEditComponent },
+            { path: 'questionEdit/:id', component: QuestionEditComponent }
         ])
     ],
     declarations: [
-        QuestionListComponent
+        QuestionListComponent,
+        QuestionEditComponent
     ],
 
     providers: [

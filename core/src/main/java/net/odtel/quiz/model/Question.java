@@ -41,8 +41,8 @@ public class Question {
     private String title;
     private String type;
 
-    private List<Answer> answer;
+    private List<Answer> answers;
     private int cost; // 1-10
-    private int accuracy; // How accurate is the answer. 1-10
+    private int accuracy; // How accurate is the answers. 1-10
     private String prompt; //
 }

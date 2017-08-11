@@ -20,6 +20,8 @@ import { XLargeDirective } from './home/x-large';
 
 import '../styles/styles.scss';
 import '../styles/headings.css';
+import { QuestionEditComponent } from './question/question-edit.component';
+import { QuestionModule } from './question/question.module';
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -52,7 +54,8 @@ type StoreType = {
         BrowserModule,
         FormsModule,
         HttpModule,
-        RouterModule.forRoot(ROUTES, {useHash: true, preloadingStrategy: PreloadAllModules})
+        RouterModule.forRoot(ROUTES, {useHash: true, preloadingStrategy: PreloadAllModules}),
+        QuestionModule
     ],
     /**
      * Expose our Services and Providers into Angular's dependency injection.

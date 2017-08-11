@@ -14,15 +14,12 @@ export class QuestionListComponent implements OnInit {
 
     }
 
-    ngOnInit(): void {
-        console.log("QuestionListComponent");
+    public ngOnInit(): void {
+        console.log('QuestionListComponent');
         this.questionService.getQuestions()
-            .subscribe(questions => {
-                this.questions = questions
+            .subscribe((questions) => {
+                this.questions = questions;
             });
     }
 
 }
-
-
-

@@ -32,7 +32,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Builder
 @EqualsAndHashCode
 @ToString
-@Document(collection="answer")
+@Document(collection="answers")
 public class Answer {
     @Id
     private String title;

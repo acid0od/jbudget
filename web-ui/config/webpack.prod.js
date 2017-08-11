@@ -65,7 +65,7 @@ module.exports = function (env) {
        *
        * See: http://webpack.github.io/docs/configuration.html#output-path
        */
-      path: helpers.root('dist'),
+      path: helpers.root('../core/src/main/webapp/app'),
 
       /**
        * Specifies the name of each output file on disk.
@@ -89,7 +89,9 @@ module.exports = function (env) {
        *
        * See: http://webpack.github.io/docs/configuration.html#output-chunkfilename
        */
-      chunkFilename: '[name].[chunkhash].chunk.js'
+      chunkFilename: '[name].[chunkhash].chunk.js',
+
+      publicPath: '/quickQuiz/app/'
 
     },
 

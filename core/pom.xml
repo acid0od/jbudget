@@ -11,6 +11,7 @@
     <name>QuickQuiz Core</name>
 
     <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>1.8</java.version>
         <spring-webmvc.version>4.3.9.RELEASE</spring-webmvc.version>
         <spring-data-mongodb.version>1.10.4.RELEASE</spring-data-mongodb.version>
@@ -72,6 +73,15 @@
 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>2.6</version>
+                <configuration>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
                 <version>${maven-war-plugin.version}</version>
                 <configuration>
@@ -97,10 +107,10 @@
                 <version>${jetty.maven.plugin.version}</version>
                 <configuration>
                     <webApp>
-                        <contextPath>/quiz</contextPath>
+                        <contextPath>/quickQuiz</contextPath>
                     </webApp>
                     <httpConnector>
-                        <port>9832</port>
+                        <port>8080</port>
                     </httpConnector>
                     <stopKey/>
                     <stopPort/>

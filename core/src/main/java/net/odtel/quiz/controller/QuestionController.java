@@ -50,86 +50,88 @@ public class QuestionController {
     @GetMapping(path = "/{id}")
     public Question getQuestionById(@PathVariable("id") String id) {
 
-//        Question question = new Question();
-//        question.setAccuracy(2);
-//        question.setCost(10);
-//        question.setType("Основные понятия биоэкологии");
-//        question.setTitle("Термин «экология» предложил:");
-//
-//        Answer answer01 = new Answer();
-//        answer01.setChecked(false);
-//        answer01.setCost(0);
-//        answer01.setRight(1);
-//        answer01.setTitle("Э. Геккель");
-//
-//        Answer answer02 = new Answer();
-//        answer02.setChecked(false);
-//        answer02.setCost(0);
-//        answer02.setRight(2);
-//        answer02.setTitle("В. И. Вернадский;");
-//
-//        Answer answer03 = new Answer();
-//        answer03.setChecked(false);
-//        answer03.setCost(0);
-//        answer03.setRight(2);
-//        answer03.setTitle("Ч. Дарвин");
-//
-//        Answer answer04 = new Answer();
-//        answer04.setChecked(false);
-//        answer04.setCost(0);
-//        answer04.setRight(2);
-//        answer04.setTitle("А. Тенсли");
-//
-//        List<Answer> answers0 = new ArrayList<>();
-//        answers0.add(answer01);
-//        answers0.add(answer02);
-//        answers0.add(answer03);
-//        answers0.add(answer04);
-//        question.setAnswer(answers0);
-//        questionService.addQuestion(question);
-//
-//        question = new Question();
-//        question.setAccuracy(2);
-//        question.setCost(10);
-//        question.setType("Общие вопросы природопользования и охраны природы");
-//        question.setTitle("Область знаний и практическая деятельность человека " +
-//                "по рациональному использованию природных ресурсов в целях удовлетворения материальных " +
-//                "и культурных потребностей общества называется …");
-//
-//        Answer answer1 = new Answer();
-//        answer1.setChecked(false);
-//        answer1.setCost(0);
-//        answer1.setRight(1);
-//        answer1.setTitle("природопользованием");
-//
-//        Answer answer2 = new Answer();
-//        answer2.setChecked(false);
-//        answer2.setCost(0);
-//        answer2.setRight(2);
-//        answer2.setTitle("социологией");
-//
-//        Answer answer3 = new Answer();
-//        answer3.setChecked(false);
-//        answer3.setCost(0);
-//        answer3.setRight(2);
-//        answer3.setTitle("естествознанием");
-//
-//        Answer answer4 = new Answer();
-//        answer4.setChecked(false);
-//        answer4.setCost(0);
-//        answer4.setRight(2);
-//        answer4.setTitle("культурологией");
-//
-//        List<Answer> answers = new ArrayList<>();
-//        answers.add(answer1);
-//        answers.add(answer2);
-//        answers.add(answer3);
-//        answers.add(answer4);
-//        question.setAnswer(answers);
-//        questionService.addQuestion(question);
-//        return question;
+/*
+      Question question = new Question();
+        question.setAccuracy(2);
+        question.setCost(10);
+        question.setType("Основные понятия биоэкологии");
+        question.setTitle("Термин «экология» предложил:");
 
-          return questionService.getQuestionById(id);
+        Answer answer01 = new Answer();
+        answer01.setChecked(false);
+        answer01.setCost(0);
+        answer01.setRight(1);
+        answer01.setTitle("Э. Геккель");
+
+        Answer answer02 = new Answer();
+        answer02.setChecked(false);
+        answer02.setCost(0);
+        answer02.setRight(2);
+        answer02.setTitle("В. И. Вернадский;");
+
+        Answer answer03 = new Answer();
+        answer03.setChecked(false);
+        answer03.setCost(0);
+        answer03.setRight(2);
+        answer03.setTitle("Ч. Дарвин");
+
+        Answer answer04 = new Answer();
+        answer04.setChecked(false);
+        answer04.setCost(0);
+        answer04.setRight(2);
+        answer04.setTitle("А. Тенсли");
+
+        List<Answer> answers0 = new ArrayList<>();
+        answers0.add(answer01);
+        answers0.add(answer02);
+        answers0.add(answer03);
+        answers0.add(answer04);
+        question.setAnswers(answers0);
+        questionService.addQuestion(question);
+
+        question = new Question();
+        question.setAccuracy(2);
+        question.setCost(10);
+        question.setType("Общие вопросы природопользования и охраны природы");
+        question.setTitle("Область знаний и практическая деятельность человека " +
+                "по рациональному использованию природных ресурсов в целях удовлетворения материальных " +
+                "и культурных потребностей общества называется …");
+
+        Answer answer1 = new Answer();
+        answer1.setChecked(false);
+        answer1.setCost(0);
+        answer1.setRight(1);
+        answer1.setTitle("природопользованием");
+
+        Answer answer2 = new Answer();
+        answer2.setChecked(false);
+        answer2.setCost(0);
+        answer2.setRight(2);
+        answer2.setTitle("социологией");
+
+        Answer answer3 = new Answer();
+        answer3.setChecked(false);
+        answer3.setCost(0);
+        answer3.setRight(2);
+        answer3.setTitle("естествознанием");
+
+        Answer answer4 = new Answer();
+        answer4.setChecked(false);
+        answer4.setCost(0);
+        answer4.setRight(2);
+        answer4.setTitle("культурологией");
+
+        List<Answer> answers = new ArrayList<>();
+        answers.add(answer1);
+        answers.add(answer2);
+        answers.add(answer3);
+        answers.add(answer4);
+        question.setAnswers(answers);
+        questionService.addQuestion(question);
+        return question;
+*/
+
+        return questionService.getQuestionById(id);
     }
     
     @GetMapping(path = "/allQuestions")
