@@ -91,7 +91,8 @@ module.exports = function (env) {
        */
       chunkFilename: '[name].[chunkhash].chunk.js',
 
-      publicPath: '/quickQuiz/app/'
+      /* publicPath: '/quickQuiz/app/' */
+      publicPath: '/app/'
 
     },
 

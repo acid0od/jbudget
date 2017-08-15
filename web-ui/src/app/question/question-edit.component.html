@@ -15,8 +15,7 @@
                         <div class="form-group row has-danger" [ngClass]="{'has-danger': displayMessage.title}">
                             <label class="col-lg-2 col-form-label form-control-label"
                                    style="text-align: right">Question</label>
-                            <textarea class="col-lg-10 form-control" rows="5" id="title" aria-describedby="emailHelp"
-                                      placeholder="Enter email" formControlName="title"></textarea>
+                            <textarea class="col-lg-10 form-control" rows="5" id="title" aria-describedby="emailHelp" formControlName="title"></textarea>
                             <small id="emailHelp" class="offset-lg-2 form-text text-muted" *ngIf="displayMessage.title">
                                 {{displayMessage.title}}
                             </small>
@@ -47,7 +46,7 @@
                             <label class="col-lg-2 col-form-label form-control-label"
                                    style="text-align: right">Prompt</label>
                             <textarea class="col-lg-10 form-control" rows="5" id="prompt" aria-describedby="promptHelp"
-                                      placeholder="Enter email" formControlName="prompt"></textarea>
+                                      placeholder="Enter Prompt" formControlName="prompt"></textarea>
                             <small id="promptHelp" class="offset-lg-2 form-control-feedback form-text text-muted"
                                    *ngIf="displayMessage.prompt">
                                 {{displayMessage.prompt}}

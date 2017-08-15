@@ -42,7 +42,13 @@ public class MongoQuestionService implements QuestionService {
     public Question getQuestionById(String id) {
         return repository.findOne(id);
     }
-
+    
+    @Override
+    public Question updateQuestion(Question question, String id) {
+        repository.save(question);
+        return question;
+    }
+    
     public void deleteQuestion(String id) {
         repository.delete(id);
     }

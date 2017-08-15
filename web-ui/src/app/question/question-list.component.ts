@@ -7,7 +7,7 @@ import { IQuestion } from '../model/question';
 })
 
 export class QuestionListComponent implements OnInit {
-
+    public title: string = 'Questions';
     public questions: IQuestion[];
 
     constructor(private questionService: QuestionService) {

@@ -37,7 +37,7 @@ public class Answer {
     @Id
     private String title;
     private int cost;
-    private int right;
+    private boolean right;
     private String prompt;
     private boolean checked;
 }

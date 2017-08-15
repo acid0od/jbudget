@@ -190,10 +190,37 @@ export class QuestionEditComponent implements OnInit, OnDestroy, AfterViewInit {
         return this.fb.group({
             title: [''],
             cost: [0],
-            right: [0],
+            right: [false],
             prompt: ['']
         });
     }
+/*
 
+
+    private copyToQuestion(): IQuestion {
+
+        let p = Object.assign({}, this.question, this.questionForm.value);
+        if (this.questionForm.value.answers) {
+
+        }
+
+        if (value.onlyToNotifCenter) {
+            notification.onlyToNotifCenter = value.onlyToNotifCenter;
+        } else {
+            notification.onlyToNotifCenter = false;
+        }
+
+        if (isDefined(value.msgTitles)) {
+            notification.msgTitle = Object.create(null);
+            value.msgTitles.forEach((s) => {
+                if (s.key !== '' && s.value !== '') {
+                    notification.msgTitle[s.key] = s.value;
+                }
+            });
+        }
+        return p;
+    }
+
+*/
 
 }

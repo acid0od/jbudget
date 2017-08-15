@@ -15,4 +15,5 @@ public interface QuestionService {
     Question addQuestion(Question question);
     List<Question> getAllQuestions();
     Question getQuestionById(String id);
+    Question updateQuestion(Question question, String id);
 }

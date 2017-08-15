@@ -56,6 +56,7 @@ export class QuestionService {
     }
 
     private updateQuestion(question: IQuestion, options: RequestOptions): Observable<IQuestion> {
+        console.log('___' + JSON.stringify(question));
         return this.http.put(this.formUrl() + '/' + question.id, question, options)
             .map(() => question)
             .do((data) => {
@@ -76,21 +77,23 @@ export class QuestionService {
         };
     }
 
-    private extractData(response: Response) {
-        let body = response.json();
-        return body || {};
+    private extractData (response: Response) {
+        return response.json() || {};
     }
 
-    private handleError(error: Response): Observable<any> {
-        // in a real world app, we may send the server to some remote logging infrastructure
-        // instead of just logging it to the console
-        console.error(error);
-        return Observable.throw(error.json().error || 'Server error');
+    private handleError(errorResponse: Response | any) {
+        let errorMessage: string;
+        if (errorResponse instanceof Response) {
+            const body = errorResponse.json() || '';
+            const error = body.error || JSON.stringify(body);
+            errorMessage = `${errorResponse.status} - ${errorResponse.statusText || ''} ${error}`;
+        } else {
+            errorMessage = errorResponse.message ? errorResponse.message : errorResponse.toString();
+        }
+        return Observable.throw(errorMessage);
     }
 
     private formUrl() {
-        console.log('+++++++++++[' + this.appState.get('serverUrl') + ']');
-        console.log('--------------[' + this.apiUrl + ']');
         return this.appState.get('serverUrl') + this.apiUrl;
     }
 

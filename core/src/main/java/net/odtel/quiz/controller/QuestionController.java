@@ -47,10 +47,14 @@ public class QuestionController {
         return new ResponseEntity<>(questionService.addQuestion(question), HttpStatus.CREATED);
     }
     
+    @PutMapping(path = Constants.Api.ROOT + "/{id}")
+    public ResponseEntity<Question> updateQuestion(@RequestBody Question question, @PathVariable("id") String id) {
+        return new ResponseEntity<>(questionService.updateQuestion(question, id), HttpStatus.CREATED);
+    }
+    
     @GetMapping(path = "/{id}")
     public Question getQuestionById(@PathVariable("id") String id) {
-
-/*
+    /*
       Question question = new Question();
         question.setAccuracy(2);
         question.setCost(10);
@@ -60,25 +64,25 @@ public class QuestionController {
         Answer answer01 = new Answer();
         answer01.setChecked(false);
         answer01.setCost(0);
-        answer01.setRight(1);
+        answer01.setRight(true);
         answer01.setTitle("Э. Геккель");
 
         Answer answer02 = new Answer();
         answer02.setChecked(false);
         answer02.setCost(0);
-        answer02.setRight(2);
+        answer02.setRight(false);
         answer02.setTitle("В. И. Вернадский;");
 
         Answer answer03 = new Answer();
         answer03.setChecked(false);
         answer03.setCost(0);
-        answer03.setRight(2);
+        answer03.setRight(false);
         answer03.setTitle("Ч. Дарвин");
 
         Answer answer04 = new Answer();
         answer04.setChecked(false);
         answer04.setCost(0);
-        answer04.setRight(2);
+        answer04.setRight(false);
         answer04.setTitle("А. Тенсли");
 
         List<Answer> answers0 = new ArrayList<>();
@@ -100,25 +104,25 @@ public class QuestionController {
         Answer answer1 = new Answer();
         answer1.setChecked(false);
         answer1.setCost(0);
-        answer1.setRight(1);
+        answer1.setRight(true);
         answer1.setTitle("природопользованием");
 
         Answer answer2 = new Answer();
         answer2.setChecked(false);
         answer2.setCost(0);
-        answer2.setRight(2);
+        answer2.setRight(false);
         answer2.setTitle("социологией");
 
         Answer answer3 = new Answer();
         answer3.setChecked(false);
         answer3.setCost(0);
-        answer3.setRight(2);
+        answer3.setRight(false);
         answer3.setTitle("естествознанием");
 
         Answer answer4 = new Answer();
         answer4.setChecked(false);
         answer4.setCost(0);
-        answer4.setRight(2);
+        answer4.setRight(false);
         answer4.setTitle("культурологией");
 
         List<Answer> answers = new ArrayList<>();
@@ -128,9 +132,7 @@ public class QuestionController {
         answers.add(answer4);
         question.setAnswers(answers);
         questionService.addQuestion(question);
-        return question;
-*/
-
+        return question; */
         return questionService.getQuestionById(id);
     }
     

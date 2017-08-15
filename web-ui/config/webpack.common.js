@@ -32,9 +32,11 @@ const AOT = process.env.BUILD_AOT || helpers.hasNpmFlag('aot');
 
 const METADATA = {
     title: 'Quick Quiz',
-    baseUrl: '/quickQuiz/',
+    /* baseUrl: '/quickQuiz/', */
+    baseUrl: '/',
     isDevServer: helpers.isWebpackDevServer(),
-    serverUrl: helpers.isWebpackDevServer() ? "http://localhost:8080/quickQuiz/" : "/quickQuiz/"
+    /* serverUrl: helpers.isWebpackDevServer() ? "http://localhost:8080/quickQuiz/" : "/quickQuiz/" */
+    serverUrl: helpers.isWebpackDevServer() ? "http://localhost:8080/" : "/"
 };
 
 /**
