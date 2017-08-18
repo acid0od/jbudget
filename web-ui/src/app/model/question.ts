@@ -7,5 +7,8 @@ export interface IQuestion {
     cost: number;
     accuracy: number;
     prompt: string;
+    state: string;
+    correctness: string;
+    selected: number;
     answers: Answer[];
 }

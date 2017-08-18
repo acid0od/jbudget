@@ -1,22 +1,45 @@
 <div id="quiz">
-    <div class="progress"></div>
-    <div class="intro">
+    <div class="progress">
+        <div [ngClass]="{'on': i === activeQuestion, 'off': i !== activeQuestion }" *ngFor="let question of questions; index as i">
+        </div>
+    </div>
+    <div class="intro" [ngClass]="{'inactive': activeQuestion > -1, 'active': activeQuestion == -1 }">
         <h2>Welcome</h2>
         <p>Click 'Begin' to test your knowledge of Ecology</p>
-        <p class="btn">Begin</p>
+        <p class="btn" (click)="activeQuestion = 0">Begin</p>
     </div>
-    <div class="question">
-        <div class="txt">Термин «экология» предложил:</div>
+    <div class="question"
+         [ngClass]="{'inactive': activeQuestion !== l, 'active': activeQuestion === l,
+         'answered': question.state === 'answered',
+         'unanswered': question.state !== 'answered'}"
+         *ngFor="let question of questions; index as l">
+        <div class="txt">{{question.title}}</div>
+        <div class="answer"
+             [ngClass]="{'selected': isSelected(l, a), 'correct': isCorrect(l,a)}"
+             (click)="selectAnswer(l, a)"
+             *ngFor="let answer of question.answers; index as a">
+            {{answer.title}}
+        </div>
+<!--
         <div class="answer correct">Э. Геккель</div>
         <div class="answer">В. И. Вернадский</div>
         <div class="answer selected">Ч. Дарвин</div>
         <div class="answer">А. Тенсли</div>
+-->
         <div class="feedback">
-            <p>You are <strong>correct</strong></p>
-            <p>Oops! That is not correct</p>
+            <p *ngIf="isAnsweredWasCorrected(l)">You are <strong>correct</strong></p>
+            <p *ngIf="!isAnsweredWasCorrected(l)">Oops! That is not correct</p>
             <p>Additional feedback</p>
-            <div class="btn">Continue</div>
+            <div class="btn" (click)="selectContinue()">Continue</div>
         </div>
     </div>
-    <div class="result"></div>
+    <div class="result">
+        <h3>Results</h3>
+        <p>You scored by correctly answering of the total questions.</p>
+        <p>Use this link below to challenge you friends</p>
+        <div class="share">
+            <a class="btn email" href="#">Email</a>
+            <a class="btn tweet" href="#">Tweet</a>
+        </div>
+    </div>
 </div>

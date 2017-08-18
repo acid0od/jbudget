@@ -26,6 +26,7 @@ public class Constants {
     
     public static class Api {
         public static final String QUESTION_API = "/api/question";
+        public static final String TEST_API = "/api/test";
         public static final String ROOT = "/";
     }
 }
