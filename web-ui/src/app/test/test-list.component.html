@@ -1,6 +1,11 @@
 <div id="quiz">
     <div class="progress">
-        <div [ngClass]="{'on': i === activeQuestion, 'off': i !== activeQuestion }" *ngFor="let question of questions; index as i">
+        <div [ngClass]="{'on': i === activeQuestion, 'off': i !== activeQuestion,
+              'answered': question.state === 'answered',
+              'unanswered': question.state !== 'answered',
+              'correct': isAnsweredWasCorrected(i),
+              'incorrect': !isAnsweredWasCorrected(i)}"
+             *ngFor="let question of questions; index as i">
         </div>
     </div>
     <div class="intro" [ngClass]="{'inactive': activeQuestion > -1, 'active': activeQuestion == -1 }">
@@ -20,12 +25,12 @@
              *ngFor="let answer of question.answers; index as a">
             {{answer.title}}
         </div>
-<!--
-        <div class="answer correct">Э. Геккель</div>
-        <div class="answer">В. И. Вернадский</div>
-        <div class="answer selected">Ч. Дарвин</div>
-        <div class="answer">А. Тенсли</div>
--->
+        <!--
+                <div class="answer correct">Э. Геккель</div>
+                <div class="answer">В. И. Вернадский</div>
+                <div class="answer selected">Ч. Дарвин</div>
+                <div class="answer">А. Тенсли</div>
+        -->
         <div class="feedback">
             <p *ngIf="isAnsweredWasCorrected(l)">You are <strong>correct</strong></p>
             <p *ngIf="!isAnsweredWasCorrected(l)">Oops! That is not correct</p>
@@ -33,9 +38,9 @@
             <div class="btn" (click)="selectContinue()">Continue</div>
         </div>
     </div>
-    <div class="result">
+    <div class="result" [ngClass]="{'inactive': totalQuestion !== activeQuestion , 'active': totalQuestion === activeQuestion}">
         <h3>Results</h3>
-        <p>You scored by correctly answering of the total questions.</p>
+        <p>You scored {{percentage}}% by correctly answering {{ score }} of the total {{ totalQuestion }} questions.</p>
         <p>Use this link below to challenge you friends</p>
         <div class="share">
             <a class="btn email" href="#">Email</a>

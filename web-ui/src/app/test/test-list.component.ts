@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { IQuestion } from '../model/question';
-import { QuestionService } from '../question/question.service';
 import { TestService } from './test-service';
 
 @Component({
@@ -12,6 +11,9 @@ export class TestListComponent implements OnInit {
     public title: string = 'Questions';
     public questions: IQuestion[];
     public activeQuestion: number = -1;
+    public totalQuestion: number = 0;
+    public percentage: string = '';
+    public score: number = 0;
 
     constructor(private testService: TestService) {
 
@@ -21,6 +23,7 @@ export class TestListComponent implements OnInit {
         this.testService.getQuestions()
             .subscribe((questions) => {
                 this.questions = questions;
+                this.totalQuestion = questions.length;
             });
     }
 
@@ -31,12 +34,16 @@ export class TestListComponent implements OnInit {
             let answer = this.questions[questionIndex].answers[answerIndex];
             if (answer.right) {
                 this.questions[questionIndex].correctness = 'correct';
+                this.score++;
             } else {
                 this.questions[questionIndex].correctness = 'incorrect';
             }
 
             this.questions[questionIndex].state = 'answered';
         }
+
+        this.percentage = ((this.score / this.totalQuestion ) * 100).toFixed(1);
+
     }
 
     public isSelected(questionIndex: number, answerIndex: number): boolean {

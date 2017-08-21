@@ -23,7 +23,6 @@
 package net.odtel.quiz.controller;
 
 import net.odtel.quiz.Constants;
-import net.odtel.quiz.model.Answer;
 import net.odtel.quiz.model.Question;
 import net.odtel.quiz.service.QuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,8 +30,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 @RestController
@@ -54,8 +51,8 @@ public class QuestionController {
     
     @GetMapping(path = "/{id}")
     public Question getQuestionById(@PathVariable("id") String id) {
-    /*
-      Question question = new Question();
+
+/*      Question question = new Question();
         question.setAccuracy(2);
         question.setCost(10);
         question.setType("Основные понятия биоэкологии");
@@ -132,7 +129,7 @@ public class QuestionController {
         answers.add(answer4);
         question.setAnswers(answers);
         questionService.addQuestion(question);
-        return question; */
+        return question;*/
         return questionService.getQuestionById(id);
     }
     
